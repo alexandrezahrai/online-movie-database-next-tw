@@ -16,7 +16,7 @@ export function CardVertical({
 }) {
   return (
     <div className="group flex w-full md:max-w-[228px] flex-col gap-[18px] rounded-[10px] border-none bg-[#1A1A1A] p-3">
-      <div className="relative h-[500px] md:h-[298px] w-full overflow-clip rounded-t-[5px]">
+      <div className="relative h-[500px] sm:h-[298px] w-full overflow-clip rounded-t-[5px]">
         <button className="absolute top-0 left-3">
           <Bookmark />
         </button>
@@ -34,7 +34,7 @@ export function CardVertical({
         >
           {title}
         </Link>
-        <div className="flex w-full items-center justify-start gap-6 px-2">
+        <div className="flex w-full items-center justify-between px-1">
           <div className="inline-flex items-center gap-2">
             <FaStar className="text-[#F5C518] w-[18px] h-[18px]" />
             <span className="text-[18px] leading-none tracking-normal text-[#C3C3C3]">

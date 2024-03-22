@@ -1,5 +1,5 @@
 import MoviesSlider from "./components/MoviesSlider";
-import { CardHorizontal, CardVertical } from "./components/ui/cards";
+import { CardHorizontal } from "./components/ui/cards";
 import { movies } from "./lib/data";
 import { getMoviesByQuery } from "./lib/data";
 

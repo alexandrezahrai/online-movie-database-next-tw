@@ -5,22 +5,23 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/app/components/ui/carousel";
-import { CardVertical } from "@/app/components/ui/cards";
+import { Suspense } from "react";
+import Video from "./ui/video-component";
 
 export default function MoviesSlider({
   title,
   kicker,
-  movies,
+  videos,
 }: {
   title: string;
   kicker?: string;
-  movies: any[];
+  videos: any[];
 }) {
   return (
     <Carousel
       opts={{
         align: "start",
-        slidesToScroll: 5,
+        slidesToScroll: 2,
       }}
       className="w-full"
     >
@@ -35,28 +36,23 @@ export default function MoviesSlider({
         </div>
       </div>
       <CarouselContent>
-        {movies.map(
-          (movie: {
-            title: string;
-            poster_path: string;
-            id: string;
-            vote_average: number;
-          }) => {
-            return (
-              <CarouselItem
-                key={movie.title}
-                className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-              >
-                <CardVertical
-                  image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  href={`/movie/${movie.id}`}
-                  title={movie.title}
-                  rating={movie.vote_average}
-                />
-              </CarouselItem>
-            );
-          }
-        )}
+        {videos.map((video: { key: string; name: string }) => {
+          return (
+            <CarouselItem key={video.name} className="md:basis-[500px]">
+              <Suspense fallback={<div>Video is loading...</div>}>
+                <div
+                  key={video.key}
+                  className="overflow-clip w-full rounded-[10px] h-[301px]"
+                >
+                  <Video width="100%" height="100%" trailerKey={video.key} />
+                </div>
+              </Suspense>
+              <p className="text-[16px] leading-[175%] text-[#C3C3C3] mt-2.5 line-clamp-1">
+                {video.name}
+              </p>
+            </CarouselItem>
+          );
+        })}
       </CarouselContent>
     </Carousel>
   );

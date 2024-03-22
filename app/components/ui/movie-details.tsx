@@ -94,7 +94,7 @@ export function MovieDetailsOverview({
         <ul className="flex flex-col md:flex-row gap-3">
           {movieGenres.map(({ name }) => (
             <li key={name}>
-              <button className="text-[16px] leading-[175%] text-[#C3C3C3] bg-[rgba(163,163,163,0.15)] px-[18px] py-[3.5px] rounded-full">
+              <button className="text-[16px] leading-[175%] text-[#C3C3C3] bg-[rgba(163,163,163,0.15)] px-[18px] py-1.5 rounded-[45px]">
                 {name}
               </button>
             </li>
