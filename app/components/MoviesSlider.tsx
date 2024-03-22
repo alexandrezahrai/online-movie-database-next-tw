@@ -27,7 +27,7 @@ export default function MoviesSlider({
       <div className="flex items-end justify-between w-full mb-8">
         <div className="flex flex-col gap-[5px]">
           <h2 className="text-[28px] text-[#C3C3C3]">{title}</h2>
-          {kicker && <p className="text-[#C3C3C3]">{kicker}</p>}
+          {kicker && <p className="text-[#797979]">{kicker}</p>}
         </div>
         <div className="flex gap-2">
           <CarouselPrevious variant={"default"} />

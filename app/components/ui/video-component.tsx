@@ -15,6 +15,7 @@ export default function Video({
       title="YouTube trailer"
       frameBorder={0}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+      className="object-cover w-full h-full"
     />
   );
 }

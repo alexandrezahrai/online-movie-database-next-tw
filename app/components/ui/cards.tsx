@@ -2,6 +2,16 @@ import { FaStar, FaRegStar, FaPlay } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import Bookmark from "@/app/components/svg/Bookmark";
 import Link from "next/link";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/app/components/ui/dialog";
+import Video from "./video-component";
+import { AspectRatio } from "./aspect-ratio";
 
 export function CardVertical({
   image,
@@ -53,10 +63,20 @@ export function CardVertical({
             <IoIosInformationCircle className="text-[rgba(121,121,121,1)] w-5 h-5" />
           </button>
         </div>
-        <button className="just flex w-full items-center gap-3 overflow-clip rounded-[10px] bg-[rgba(163,163,163,0.05)] px-[18px] py-[9px] text-[16px] leading-[175%] text-[#C3C3C3] transition-colors duration-200 ease-in [box-shadow:inset_0_2px_1px_0_rgb(255_255_255/0.08)] hover:bg-[rgba(163,163,163,0.15)]">
-          <FaPlay className="h-[18px] w-[18px]" />
-          <span>Trailer</span>
-        </button>
+        <Dialog>
+          <DialogTrigger className="just flex w-full items-center gap-3 overflow-clip rounded-[10px] bg-[rgba(163,163,163,0.05)] px-[18px] py-[9px] text-[16px] leading-[175%] text-[#C3C3C3] transition-colors duration-150 ease-in [box-shadow:inset_0_2px_1px_0_rgb(255_255_255/0.08)] hover:bg-[rgba(163,163,163,0.15)]">
+            <FaPlay className="h-[18px] w-[18px]" />
+            View Trailer
+          </DialogTrigger>
+          <DialogContent className="w-[700px]">
+            <AspectRatio ratio={16 / 9}>
+              <div className="overflow-clip w-full rounded-[10px] h-full">
+                <Video width="100%" height="100%" trailerKey="dQw4w9WgXcQ" />
+                {/* TODO: add trailer key prop */}
+              </div>
+            </AspectRatio>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
