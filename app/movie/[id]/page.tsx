@@ -9,6 +9,7 @@ import {
   MovieDetailsOverview,
 } from "@/app/components/ui/movie-details";
 import VideosSlider from "@/app/components/VideosSlider";
+import TabsComponent from "@/app/components/TabsComponent";
 
 export async function generateStaticParams() {
   const response = await getMoviesByQuery("popular?language=en-US");
@@ -37,7 +38,6 @@ export default async function MoviePage({ params }: { params: any }) {
   const runtimeInHours = Math.floor(runtimeInMinutes / 60);
   const runtimeInMinutesModulo = runtimeInMinutes % 60;
   const runtime = `${runtimeInHours}h ${runtimeInMinutesModulo}m`;
-  // console.log(typeTeaser);
   return (
     <>
       <section className="py-10 w-full">
@@ -68,6 +68,15 @@ export default async function MoviePage({ params }: { params: any }) {
       <section className="py-10 w-full">
         <div className="container px-[26px] mx-auto">
           <VideosSlider title="Videos" videos={videosArr} />
+        </div>
+      </section>
+
+      <section className="py-10 w-full">
+        <div className="container px-[26px] mx-auto">
+          <div className="flex flex-col gap-[5px] mb-8">
+            <h2 className="text-[28px] text-[#C3C3C3]">Where to watch</h2>
+          </div>
+          <TabsComponent />
         </div>
       </section>
     </>

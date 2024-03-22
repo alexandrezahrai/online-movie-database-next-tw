@@ -36,7 +36,7 @@ export function CardVertical({
         </Link>
         <div className="flex w-full items-center justify-between px-1">
           <div className="inline-flex items-center gap-2">
-            <FaStar className="text-[#F5C518] w-[18px] h-[18px]" />
+            <FaStar className="text-golden w-[18px] h-[18px]" />
             <span className="text-[18px] leading-none tracking-normal text-[#C3C3C3]">
               {Math.round(rating * 10) / 10}
             </span>
@@ -84,7 +84,7 @@ export function CardHorizontal({
       <div className="flex items-start justify-start gap-[19px]">
         <div className="flex gap-3">
           <div className="text-[28px] text-[#C3C3C3]">{rank}</div>
-          <div className="h-10 w-1 rounded-full bg-[#F5C518]"></div>
+          <div className="h-10 w-1 rounded-full bg-golden"></div>
         </div>
         <div className="relative h-[500px] w-full md:h-[194px] md:w-[126px] overflow-clip rounded-[5px] flex-shrink-0">
           <button className="absolute top-0 left-3">
@@ -104,7 +104,7 @@ export function CardHorizontal({
             </h2>
             <div className="flex w-full items-center justify-end gap-6">
               <div className="inline-flex items-center gap-2">
-                <FaStar className="text-[#F5C518] w-[18px] h-[18px]" />
+                <FaStar className="text-golden w-[18px] h-[18px]" />
                 <span className="text-[18px] leading-none tracking-normal text-[#C3C3C3]">
                   {rating}
                 </span>

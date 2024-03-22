@@ -47,7 +47,7 @@ export default function MoviesSlider({
                   <Video width="100%" height="100%" trailerKey={video.key} />
                 </div>
               </Suspense>
-              <p className="text-[16px] leading-[175%] text-[#C3C3C3] mt-2.5 line-clamp-1">
+              <p className="text-[16px] leading-[175%] text-[#797979] mt-2.5 line-clamp-1">
                 {video.name}
               </p>
             </CarouselItem>

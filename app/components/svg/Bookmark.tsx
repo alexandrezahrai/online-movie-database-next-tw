@@ -5,7 +5,7 @@ const Bookmark = (props: SVGProps<SVGSVGElement>) => (
     width={43}
     height={53}
     fill="none"
-    className="fill-[#1A1A1A] opacity-70 hover:fill-[#F5C518] hover:opacity-100 transition-all duration-100 ease-in"
+    className="fill-[#1A1A1A] opacity-70 hover:fill-golden hover:opacity-100 transition-all duration-100 ease-in"
     {...props}
   >
     <path fill="none" fillOpacity="none" d="M2 50.5V0h39v50.5l-18.5-7z" />

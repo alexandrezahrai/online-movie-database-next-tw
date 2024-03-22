@@ -89,7 +89,7 @@ export function MovieDetailsOverview({
   stars: Array<{ name: string }>;
 }) {
   return (
-    <div className="flex flex-col items-start gap-6 md:gap-4 mt-7">
+    <div className="flex flex-col items-start gap-6 md:gap-4 mt-8">
       <Template label={`${movieGenres.length > 1 ? "Genres" : "Genre"}`}>
         <ul className="flex flex-col md:flex-row gap-3">
           {movieGenres.map(({ name }) => (
