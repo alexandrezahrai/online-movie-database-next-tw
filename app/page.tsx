@@ -11,6 +11,7 @@ export default async function Home() {
   const topRatedQuery = "top_rated?language=en-US&page=1";
   const topRatedMoviesData = await getMoviesByQuery(topRatedQuery);
   const topRatedMoviesArr = topRatedMoviesData.results;
+
   return (
     <>
       {/* Horizontal Cards */}
