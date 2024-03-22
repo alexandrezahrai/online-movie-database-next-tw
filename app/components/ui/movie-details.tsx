@@ -29,9 +29,9 @@ export function MovieDetailsHero({
   trailerKey: string;
 }) {
   return (
-    <div className="mt-8 max-h-[491px] h-full w-full flex gap-6 overflow-clip">
-      <div className="w-full max-w-[336px]">
-        <div className="overflow-clip w-full h-full rounded-[3px]">
+    <div className="mt-8 h-full w-full flex flex-col gap-6 overflow-clip md:flex-row md:max-h-[491px] ">
+      <div className="w-full md:max-w-[336px]">
+        <div className="overflow-clip w-full h-full rounded-[5px]">
           <Image
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt="poster"
@@ -43,7 +43,7 @@ export function MovieDetailsHero({
       </div>
       <div className="w-full">
         <Suspense fallback={<div>Video is loading...</div>}>
-          <div className="overflow-clip w-full h-full rounded-[3px]">
+          <div className="overflow-clip w-full h-full rounded-[5px]">
             <Video width="100%" height="100%" trailerKey={trailerKey} />
           </div>
         </Suspense>
@@ -94,7 +94,7 @@ export function MovieDetailsOverview({
         <ul className="flex flex-col md:flex-row gap-3">
           {movieGenres.map(({ name }) => (
             <li key={name}>
-              <button className="text-[16px] leading-[175%] text-[#C3C3C3] bg-[rgba(163,163,163,0.15)] px-[18px] py-[3.5px] rounded-full">
+              <button className="text-[16px] leading-[175%] text-[#C3C3C3] bg-[rgba(163,163,163,0.15)] px-[18px] py-1.5 rounded-[45px]">
                 {name}
               </button>
             </li>

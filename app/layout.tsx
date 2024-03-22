@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <main className="flex min-h-screen flex-col items-start justify-between relative">
-          <div className="absolute mx-auto my-0 top-16 w-full max-w-[1000px] h-full max-h-[762px] bg-[rgba(158,139,248,0.3)] blur-[1000px] -z-10"></div>
+          {/* <div className="absolute mx-auto my-0 top-16 left-0 right-0 w-full max-w-[1000px] h-full max-h-[762px] bg-[rgba(158,139,248,0.3)] blur-[500px] -z-10"></div> */}
           {children}
         </main>
       </body>
