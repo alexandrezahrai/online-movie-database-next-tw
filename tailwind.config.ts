@@ -14,6 +14,10 @@ const config: Config = {
       colors: {
         golden: "#F5C518",
       },
+      fontFamily: {
+        inter: ["var(--font-inter)", "sans-serif"],
+        dmSans: ["var(--font-dm-sans)", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
