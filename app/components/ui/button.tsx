@@ -5,12 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/app/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center whitespace-nowrap rounded-[45px] text-[16px] leading-[175%] transition-colors duration-150 ease-in focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-[rgba(163,163,163,0.15)] text-white hover:bg-golden hover:text-[#1A1A1A] shadow transition-colors duration-150 ease-in",
+          "bg-[rgba(163,163,163,0.15)] text-[#C3C3C3] hover:bg-golden hover:text-[#1A1A1A] shadow border border-[rgba(219,234,254,.2)]",
+        glass:
+          "bg-[rgba(163,163,163,0.15)] text-[rgba(195,195,195,0.8)] hover:text-golden hover:bg-[rgba(163,163,163,0.3)] shadow border border-[rgba(219,234,254,.2)] outline-none ring-golden after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-golden after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-golden/40 hover:text-golden after:hover:bg-opacity-15 focus:ring-2",
+        link: "relative !p-0 after:absolute after:bg-gray-200 after:bottom-[4px] after:left-0 after:h-px after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
@@ -18,7 +21,6 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2",
