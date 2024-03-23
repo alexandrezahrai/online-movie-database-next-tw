@@ -75,8 +75,8 @@ const baseUrl = "https://api.themoviedb.org/3/";
 const authToken =
   process.env.ACCESS_TOKEN ?? "".replace(/\\/g, "").replace(/"/g, "");
 
-export async function getMoviesByQuery(query: string) {
-  const url = `${baseUrl}movie/${query}`;
+export async function fetchFromApi(endpoint: string) {
+  const url = `${baseUrl}${endpoint}`;
 
   const res = await fetch(url, {
     method: "GET",
@@ -93,20 +93,12 @@ export async function getMoviesByQuery(query: string) {
   return res.json();
 }
 
+export async function getMoviesByQuery(query: string) {
+  return fetchFromApi(`movie/${query}`);
+}
+
 export async function getMovieDetails(movieId: string) {
-  const url = `${baseUrl}movie/${movieId}?language=en-US&append_to_response=videos,credits,watch/providers`;
-
-  const res = await fetch(url, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${authToken}`,
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data...");
-  }
-
-  return res.json();
+  return fetchFromApi(
+    `movie/${movieId}?language=en-US&append_to_response=videos,credits,watch/providers`
+  );
 }
