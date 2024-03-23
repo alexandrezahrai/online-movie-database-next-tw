@@ -44,7 +44,7 @@ export default function MoviesSlider({
                   key={video.key}
                   className="overflow-clip w-full rounded-[10px] h-[301px]"
                 >
-                  <Video width="100%" height="100%" trailerKey={video.key} />
+                  <Video width="100%" height="100%" videoKey={video.key} />
                 </div>
               </Suspense>
               <p className="text-[16px] leading-[175%] text-[#797979] mt-2.5 line-clamp-1">

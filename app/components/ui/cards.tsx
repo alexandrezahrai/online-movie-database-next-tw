@@ -71,7 +71,7 @@ export function CardVertical({
           <DialogContent className="w-[700px]">
             <AspectRatio ratio={16 / 9}>
               <div className="overflow-clip w-full rounded-[10px] h-full">
-                <Video width="100%" height="100%" trailerKey="dQw4w9WgXcQ" />
+                <Video width="100%" height="100%" videoKey="dQw4w9WgXcQ" />
                 {/* TODO: add trailer key prop */}
               </div>
             </AspectRatio>

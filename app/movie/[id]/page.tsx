@@ -50,7 +50,7 @@ export default async function MoviePage({ params }: { params: any }) {
 
           <MovieDetailsHero
             poster_path={details.poster_path}
-            trailerKey={typeTeaser?.key ? typeTeaser.key : videosArr[0].key}
+            videoKey={typeTeaser?.key ? typeTeaser.key : videosArr[0].key}
           />
 
           <MovieDetailsOverview
