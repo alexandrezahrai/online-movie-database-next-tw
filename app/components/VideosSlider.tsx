@@ -8,7 +8,7 @@ import {
 import { Suspense } from "react";
 import Video from "./ui/video-component";
 
-export default function MoviesSlider({
+export default function VideosSlider({
   title,
   kicker,
   videos,

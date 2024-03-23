@@ -10,6 +10,7 @@ import {
 } from "@/app/components/ui/movie-details";
 import VideosSlider from "@/app/components/VideosSlider";
 import TabsComponent from "@/app/components/TabsComponent";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   const response = await getMoviesByQuery("popular?language=en-US");
@@ -32,12 +33,15 @@ export default async function MoviePage({ params }: { params: any }) {
   const typeTeaser = videos.results.find(
     (item: { type: string }) => item.type === "Teaser"
   ); // Find the first video with type "Teaser"
-  const watchProviders = details["watch/providers"].results.US;
+  const watchProviders =
+    details["watch/providers"].results.US ||
+    details["watch/providers"].results.CA;
   const releaseDate = new Date(details.release_date).getFullYear().toString();
   const runtimeInMinutes = details.runtime;
   const runtimeInHours = Math.floor(runtimeInMinutes / 60);
   const runtimeInMinutesModulo = runtimeInMinutes % 60;
   const runtime = `${runtimeInHours}h ${runtimeInMinutesModulo}m`;
+  console.log(watchProviders);
   return (
     <>
       <section className="py-10 w-full">
@@ -77,6 +81,28 @@ export default async function MoviePage({ params }: { params: any }) {
             <h2 className="text-[28px] text-[#C3C3C3]">Where to watch</h2>
           </div>
           <TabsComponent />
+          {/* <div className="grid grid-cols-3 gap-4">
+              {watchProviders.flatrate
+                ? watchProviders.flatrate.map((item: any) => (
+                    <div
+                      key={item.provider_id}
+                      className="flex items-center gap-2"
+                    >
+                      <Image
+                        src={`https://image.tmdb.org/t/p/w500/${item.logo_path}`}
+                        alt={item.display_name}
+                        className="w-10 h-10 rounded-full"
+                        width={66}
+                        height={66}
+                      />
+                      <p className="text-[14px] text-[#C3C3C3]">
+                        {item.display_name}
+                      </p>
+                    </div>
+                  ))
+                : null}
+            </div>
+          </TabsComponent> */}
         </div>
       </section>
     </>

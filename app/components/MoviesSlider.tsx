@@ -34,7 +34,7 @@ export default function MoviesSlider({
           <CarouselNext variant={"default"} />
         </div>
       </div>
-      <CarouselContent>
+      <CarouselContent className="-ml-2">
         {movies.map(
           (movie: {
             title: string;
@@ -45,7 +45,7 @@ export default function MoviesSlider({
             return (
               <CarouselItem
                 key={movie.title}
-                className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 pl-2"
               >
                 <CardVertical
                   image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

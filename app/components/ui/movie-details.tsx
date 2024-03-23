@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Video from "./video-component";
 import { Suspense } from "react";
+import { Button } from "./button";
 
 export function MovieDetailsHeader({
   title,
@@ -13,7 +14,7 @@ export function MovieDetailsHeader({
 }) {
   return (
     <div className="flex flex-col gap-[5px]">
-      <h2 className="text-[36px] text-[#C3C3C3]">{title}</h2>
+      <h2 className="text-[36px] font-medium text-[#C3C3C3]">{title}</h2>
       <div className="text-[#797979] text-[16px] flex items-center justify-start gap-2">
         <span>{releaseDate}</span>|<span>{runtime}</span>
       </div>
@@ -67,7 +68,7 @@ function Template({
         alignContent ? alignContent : "items-start md:items-center"
       }`}
     >
-      <h3 className="text-[18px] font-semibold text-[#797979] max-w-[125px] w-full">
+      <h3 className="text-[18px] font-semibold text-[#797979] max-w-[150px] w-full">
         {label}
       </h3>
       {children}
@@ -94,9 +95,9 @@ export function MovieDetailsOverview({
         <ul className="flex flex-col md:flex-row gap-3">
           {movieGenres.map(({ name }) => (
             <li key={name}>
-              <button className="text-[16px] leading-[175%] text-[#C3C3C3] bg-[rgba(163,163,163,0.15)] px-[18px] py-1.5 rounded-[45px] hover:bg-[rgba(163,163,163,0.3)] transition-all duration-150 ease-in">
+              <Button variant={"glass"} className="">
                 {name}
-              </button>
+              </Button>
             </li>
           ))}
         </ul>
@@ -104,7 +105,7 @@ export function MovieDetailsOverview({
       <Template label="Summary" alignContent="items-start">
         <p className="text-[#C3C3C3] text-[16px] leading-[175%]">{summary}</p>
       </Template>
-      <Template label="Origin">
+      <Template label="Countries of origin" alignContent="items-start">
         <ul className="flex flex-wrap">
           {countries.map(({ name }, index) => (
             <li
@@ -114,13 +115,20 @@ export function MovieDetailsOverview({
               <p className="text-[#C3C3C3] text-[16px] leading-[175%]">
                 {name}
               </p>
-              {index !== countries.length - 1 && <span>,&nbsp;</span>}
+              {index !== countries.length - 1 && (
+                <span className="mx-2.5">&#183;</span>
+              )}
             </li>
           ))}
         </ul>
       </Template>
       <Template label="Director">
-        <p className="text-[#C3C3C3] text-[16px] leading-[175%]">{director}</p>
+        <Button
+          variant={"link"}
+          className="text-[#C3C3C3] text-[16px] leading-[175%]"
+        >
+          {director}
+        </Button>
       </Template>
       <Template label="Stars">
         <ul>
@@ -130,7 +138,9 @@ export function MovieDetailsOverview({
               className="text-[#C3C3C3] text-[16px] leading-[175%] inline-flex"
             >
               {star.name}
-              {index !== stars.length - 1 && <span>,&nbsp;</span>}
+              {index !== stars.length - 1 && (
+                <span className="mx-2.5">&#183;</span>
+              )}
             </p>
           ))}
         </ul>
