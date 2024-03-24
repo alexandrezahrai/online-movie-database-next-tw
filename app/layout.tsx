@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Movie Database",
+  title: "Cinemate",
   description: "Movie database that fetches movie data from the TMDB API.",
 };
 

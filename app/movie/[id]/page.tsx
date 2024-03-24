@@ -30,6 +30,7 @@ export default async function MoviePage({ params }: { params: any }) {
     releaseDate,
     runtime,
   } = processDetails(details);
+
   return (
     <>
       <section className="py-10 w-full">
