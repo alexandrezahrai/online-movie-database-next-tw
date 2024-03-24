@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/movie-details";
 import VideosSlider from "@/app/components/VideosSlider";
 import TabsComponent from "@/app/components/TabsComponent";
-import Image from "next/image";
+import { processDetails } from "./processMovieDetails";
 
 export async function generateStaticParams() {
   const response = await getMoviesByQuery("popular?language=en-US");
@@ -19,29 +19,17 @@ export async function generateStaticParams() {
 
 export default async function MoviePage({ params }: { params: any }) {
   const { id } = params;
+
   const details = await getMovieDetails(id);
-  const { credits, videos } = details;
-  const cast = credits.cast;
-  const crew = credits.crew;
-  const sortedCast = cast
-    .sort((a: any, b: any) => b.popularity - a.popularity)
-    .slice(0, 5);
-  const directorObj = crew.find(
-    (member: { job: string }) => member.job === "Director"
-  );
-  const videosArr = videos.results.slice(0, 9); // Only show first 9 videos
-  const typeTeaser = videos.results.find(
-    (item: { type: string }) => item.type === "Teaser"
-  ); // Find the first video with type "Teaser"
-  const watchProviders =
-    details["watch/providers"].results.US ||
-    details["watch/providers"].results.CA;
-  const releaseDate = new Date(details.release_date).getFullYear().toString();
-  const runtimeInMinutes = details.runtime;
-  const runtimeInHours = Math.floor(runtimeInMinutes / 60);
-  const runtimeInMinutesModulo = runtimeInMinutes % 60;
-  const runtime = `${runtimeInHours}h ${runtimeInMinutesModulo}m`;
-  console.log(watchProviders);
+  const {
+    sortedCast,
+    directorObj,
+    videosArr,
+    typeTeaser,
+    watchProviders,
+    releaseDate,
+    runtime,
+  } = processDetails(details);
   return (
     <>
       <section className="py-10 w-full">
