@@ -27,7 +27,13 @@ export default function MoviesSlider({
     <Carousel
       opts={{
         align: "start",
-        slidesToScroll: 5,
+        slidesToScroll: 1,
+        breakpoints: {
+          "(min-width: 640px)": { slidesToScroll: 2 },
+          "(min-width: 768px)": { slidesToScroll: 3 },
+          "(min-width: 1024px)": { slidesToScroll: 4 },
+          "(min-width: 1280px)": { slidesToScroll: 5 },
+        },
       }}
       className="w-full"
     >
