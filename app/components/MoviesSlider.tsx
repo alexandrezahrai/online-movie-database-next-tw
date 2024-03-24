@@ -7,6 +7,13 @@ import {
 } from "@/app/components/ui/carousel";
 import { CardVertical } from "@/app/components/ui/cards";
 
+interface Movie {
+  title: string;
+  poster_path: string;
+  id: string;
+  vote_average: number;
+}
+
 export default function MoviesSlider({
   title,
   kicker,
@@ -34,29 +41,22 @@ export default function MoviesSlider({
           <CarouselNext variant={"default"} />
         </div>
       </div>
-      <CarouselContent className="-ml-2">
-        {movies.map(
-          (movie: {
-            title: string;
-            poster_path: string;
-            id: string;
-            vote_average: number;
-          }) => {
-            return (
-              <CarouselItem
-                key={movie.title}
-                className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 pl-2"
-              >
-                <CardVertical
-                  image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  href={`/movie/${movie.id}`}
-                  title={movie.title}
-                  rating={movie.vote_average}
-                />
-              </CarouselItem>
-            );
-          }
-        )}
+      <CarouselContent className="ml-0">
+        {movies.map((movie: Movie) => {
+          return (
+            <CarouselItem
+              key={movie.title}
+              className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 pl-0"
+            >
+              <CardVertical
+                image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                href={`/movie/${movie.id}`}
+                title={movie.title}
+                rating={movie.vote_average}
+              />
+            </CarouselItem>
+          );
+        })}
       </CarouselContent>
     </Carousel>
   );
