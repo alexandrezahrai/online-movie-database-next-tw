@@ -13,7 +13,7 @@ export function MovieDetailsHeader({
   runtime: string;
 }) {
   return (
-    <div className="flex flex-col gap-[5px]">
+    <div className="flex flex-col">
       <h2 className="text-[36px] font-medium text-[#C3C3C3]">{title}</h2>
       <div className="text-[#797979] text-[16px] flex items-center justify-start gap-2">
         <span>{releaseDate}</span>|<span>{runtime}</span>

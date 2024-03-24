@@ -13,7 +13,7 @@ const buttonVariants = cva(
           "bg-[rgba(163,163,163,0.15)] text-[#C3C3C3] hover:bg-golden hover:text-[#1A1A1A] shadow border border-[rgba(219,234,254,.2)]",
         glass:
           "bg-[rgba(163,163,163,0.15)] text-[rgba(195,195,195,0.8)] hover:text-golden hover:bg-[rgba(163,163,163,0.3)] shadow border border-[rgba(219,234,254,.2)] outline-none ring-golden after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-golden after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-golden/40 hover:text-golden after:hover:bg-opacity-15 focus:ring-2",
-        link: "relative !p-0 after:absolute after:bg-gray-200 after:bottom-[4px] after:left-0 after:h-px after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300",
+        link: "relative !p-0 after:absolute after:bg-gray-200 after:bottom-[5px] after:left-0 after:h-px after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
