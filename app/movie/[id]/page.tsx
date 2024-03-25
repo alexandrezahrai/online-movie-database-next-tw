@@ -11,6 +11,7 @@ import {
 import VideosSlider from "@/app/components/VideosSlider";
 import TabsComponent from "@/app/components/TabsComponent";
 import { processDetails } from "./processMovieDetails";
+import PeopleSlider from "@/app/components/PeopleSlider";
 
 export async function generateStaticParams() {
   const response = await getMoviesByQuery("popular?language=en-US");
@@ -22,6 +23,7 @@ export default async function MoviePage({ params }: { params: any }) {
 
   const details = await getMovieDetails(id);
   const {
+    cast,
     sortedCast,
     directorObj,
     videosArr,
@@ -31,7 +33,7 @@ export default async function MoviePage({ params }: { params: any }) {
     runtime,
   } = processDetails(details);
 
-  // console.log(directorObj);
+  console.log(cast);
 
   return (
     <>
@@ -94,6 +96,12 @@ export default async function MoviePage({ params }: { params: any }) {
                 : null}
             </div>
           </TabsComponent> */}
+        </div>
+      </section>
+
+      <section className="py-10 w-full">
+        <div className="container px-[26px] mx-auto">
+          <PeopleSlider title="Cast" people={cast} />
         </div>
       </section>
     </>

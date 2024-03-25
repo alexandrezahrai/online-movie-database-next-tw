@@ -28,6 +28,7 @@ export function processDetails(details: any) {
   const runtime = `${runtimeInHours}h ${runtimeInMinutesModulo}m`;
 
   return {
+    cast,
     sortedCast,
     directorObj,
     videosArr,
