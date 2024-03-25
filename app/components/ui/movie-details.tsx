@@ -2,6 +2,7 @@ import Image from "next/image";
 import Video from "./video-component";
 import { Suspense } from "react";
 import { Button } from "./button";
+import Link from "next/link";
 
 export function MovieDetailsHeader({
   title,
@@ -86,7 +87,7 @@ export function MovieDetailsOverview({
   genres: Array<{ name: string }>;
   overview: string;
   production_countries: Array<{ name: string }>;
-  director: string;
+  director: { name: string; id: number };
   stars: Array<{ name: string }>;
 }) {
   return (
@@ -123,12 +124,12 @@ export function MovieDetailsOverview({
         </ul>
       </Template>
       <Template label="Director">
-        <Button
-          variant={"link"}
-          className="text-[#C3C3C3] text-[16px] leading-[175%]"
+        <Link
+          href={`/people/${director.id}`}
+          className="relative !p-0 text-[#C3C3C3] text-[16px] leading-[175%] after:absolute after:bg-gray-200 after:bottom-[5px] after:left-0 after:h-px after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300"
         >
-          {director}
-        </Button>
+          {director.name}
+        </Link>
       </Template>
       <Template label="Stars">
         <ul>

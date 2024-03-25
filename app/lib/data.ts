@@ -102,3 +102,9 @@ export async function getMovieDetails(movieId: string) {
     `movie/${movieId}?language=en-US&append_to_response=videos,credits,watch/providers`
   );
 }
+
+export async function getPersonDetails(personId: string) {
+  return fetchFromApi(
+    `person/${personId}?append_to_response=movie_credits&language=en-US`
+  );
+}

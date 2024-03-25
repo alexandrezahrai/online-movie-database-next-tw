@@ -31,6 +31,8 @@ export default async function MoviePage({ params }: { params: any }) {
     runtime,
   } = processDetails(details);
 
+  // console.log(directorObj);
+
   return (
     <>
       <section className="py-10 w-full">
@@ -48,7 +50,7 @@ export default async function MoviePage({ params }: { params: any }) {
 
           <MovieDetailsOverview
             {...details}
-            director={directorObj.name}
+            director={directorObj}
             stars={sortedCast}
           />
         </div>
