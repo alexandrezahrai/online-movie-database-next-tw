@@ -1,5 +1,5 @@
 import MoviesSlider from "./components/MoviesSlider";
-import HomepageHero from "./components/ui/HomepageHero";
+import HomepageHero from "./components/HomepageHero";
 import { CardHorizontal } from "./components/ui/cards";
 import { movies } from "./lib/data";
 import { getMoviesByQuery } from "./lib/data";
@@ -28,7 +28,7 @@ export default async function Home() {
             with ease. Welcome to your cinematic journey!
           </p>
           <div className="mt-16 relative animate-fade-in-up [animation-fill-mode:both] [animation-delay:800ms]">
-            <div className="absolute inset-0 -z-10 bg-blue-500/30 opacity-100 blur-2xl filter"></div>
+            {/* <div className="absolute inset-0 -z-10 bg-blue-500/30 opacity-100 blur-2xl filter"></div> */}
 
             <HomepageHero movies={popularMoviesArr} />
           </div>
