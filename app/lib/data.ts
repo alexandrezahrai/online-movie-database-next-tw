@@ -108,3 +108,13 @@ export async function getPersonDetails(personId: string) {
     `person/${personId}?append_to_response=movie_credits&language=en-US`
   );
 }
+
+export async function getMoviesByGenre(genreId: string) {
+  return fetchFromApi(
+    `discover/movie?include_adult=false&language=en-US&page=3&sort_by=popularity.desc&with_genres=${genreId}`
+  );
+}
+
+export async function getAllGenres() {
+  return fetchFromApi("genre/movie/list?language=en");
+}
