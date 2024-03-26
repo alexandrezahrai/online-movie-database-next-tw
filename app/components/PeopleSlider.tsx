@@ -31,7 +31,7 @@ export default function PeopleSlider({
     <Carousel
       opts={{
         align: "start",
-        slidesToScroll: 2,
+        slidesToScroll: 6,
       }}
       className="w-full"
     >
