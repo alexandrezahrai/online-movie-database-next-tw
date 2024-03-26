@@ -33,7 +33,7 @@ export default async function MoviePage({ params }: { params: any }) {
     runtime,
   } = processDetails(details);
 
-  console.log(cast);
+  // console.log(cast);
 
   return (
     <>

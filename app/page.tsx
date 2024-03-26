@@ -4,14 +4,15 @@ import { getMoviesByQuery, getMoviesByGenre, getAllGenres } from "./lib/data";
 
 interface MovieRowSectionProps {
   title: string;
+  kicker?: string;
   moviesArr: any[];
 }
 
-function MovieRowSection({ title, moviesArr }: MovieRowSectionProps) {
+function MovieRowSection({ title, kicker, moviesArr }: MovieRowSectionProps) {
   return (
     <section className="py-10 w-full">
       <div className="container px-[26px] mx-auto">
-        <MoviesSlider title={title} movies={moviesArr} />
+        <MoviesSlider title={title} kicker={kicker} movies={moviesArr} />
       </div>
     </section>
   );
@@ -27,16 +28,16 @@ export default async function Home() {
     return moviesData.results;
   }
 
-  const homepageHeroMoviesArr = await getMovies("popular", 5);
+  const homepageHeroMoviesArr = await getMovies("now_playing", 2);
   const popularMoviesArr = await getMovies("popular", 1);
   const topRatedMoviesArr = await getMovies("top_rated", 1);
-  const nowPlayingMoviesArr = await getMovies("now_playing", 2);
+  const nowPlayingMoviesArr = await getMovies("now_playing", 3);
 
   async function getMoviesByGenreId(genreId: string) {
-    const findGenreIdByName = (name: string) => {
+    const findGenre = (name: string) => {
       return genresArr.find((genre: any) => genre.name === name)?.id;
     };
-    const comedyId = findGenreIdByName(genreId);
+    const comedyId = findGenre(genreId);
     const moviesData = await getMoviesByGenre(comedyId);
     return moviesData.results;
   }
@@ -59,10 +60,12 @@ export default async function Home() {
     },
     {
       title: "Comedy",
+      kicker: "Laugh out loud!",
       moviesArr: comedyMoviesArr,
     },
     {
       title: "Action",
+      kicker: "Full of adventure!",
       moviesArr: actionMoviesArr,
     },
   ];
@@ -90,6 +93,7 @@ export default async function Home() {
         <MovieRowSection
           key={section.title}
           title={section.title}
+          kicker={section.kicker}
           moviesArr={section.moviesArr}
         />
       ))}

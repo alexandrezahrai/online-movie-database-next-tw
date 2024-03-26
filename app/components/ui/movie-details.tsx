@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Video from "./video-component";
-import { Suspense } from "react";
 import { Button } from "./button";
 import Link from "next/link";
 
@@ -33,7 +32,7 @@ export function MovieDetailsHero({
   return (
     <div className="mt-8 h-full w-full flex flex-col gap-6 overflow-clip md:flex-row md:max-h-[491px] ">
       <div className="w-full md:max-w-[336px]">
-        <div className="overflow-clip w-full h-full rounded-[10px]">
+        <div className="overflow-clip w-full h-full rounded-[10px] relative">
           <Image
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt="poster"
@@ -44,11 +43,9 @@ export function MovieDetailsHero({
         </div>
       </div>
       <div className="w-full">
-        <Suspense fallback={<div>Video is loading...</div>}>
-          <div className="overflow-clip w-full h-full rounded-[10px]">
-            <Video width="100%" height="100%" videoKey={videoKey} />
-          </div>
-        </Suspense>
+        <div className="overflow-clip w-full h-full rounded-[10px]">
+          <Video width="100%" height="100%" videoKey={videoKey} />
+        </div>
       </div>
     </div>
   );
